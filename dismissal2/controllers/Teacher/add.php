@@ -8,7 +8,7 @@
 		<?php
 			
 			if($_POST["lastName"]) {
-				$query = "INSERT INTO Teacher(teacherID, firstName, lastName) VALUES(NULL, '$_POST[firstName]', '$_POST[lastName]')";
+				$query = "INSERT INTO Teacher(teacherID, firstName, lastName, pride) VALUES(NULL, '$_POST[firstName]', '$_POST[lastName]', '$_POST[pride]')";
 				
 				if (!mysql_query($query, $conn)) {
 					die ("Error: ".mysql_error ());

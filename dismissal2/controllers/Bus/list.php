@@ -1,16 +1,19 @@
 <?php include("../../templates/db_connect.php"); ?>
 
-<table>
-    <tr>
-			<th>busID</th>
-			<th>Name</th>
-			<th>lineName</th>
-			<th>lineOrder</th>
-			<th>driverName</th>
-    </tr>
+<table id="busTable" class="center">
+	<thead>
+		<tr>
+				<th>Bus ID</th>
+				<th>Name</th>
+				<th>Line Order</th>
+				<th>Driver Name</th>
+				<th>Contact Number</th>
+		</tr>
+	</thead>
+	<tbody>
 	<?php
 		
-		$query = "SELECT * FROM Bus";
+		$query = "SELECT * FROM Bus ORDER BY lineOrder, name";
 		
 		$result = mysql_query($query, $conn) or die('.mysql_error');
 		
@@ -18,10 +21,11 @@
 			echo("<tr>" .
 						"<td>" . $row["busID"] . "</td>" .
 						"<td>" . $row["name"] . "</td>" .
-						"<td>" . $row["lineName"] . "</td>" .
 						"<td>" . $row["lineOrder"] . "</td>" .
 						"<td>" . $row["driverName"] . "</td>" .
+						"<td>" . $row["contactNum"] . "</td>" .
 				 "</tr>");
 		}
 	?>
+	</tbody>
 </table>

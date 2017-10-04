@@ -1,5 +1,3 @@
-<!-- Links in the header/footer need absolute paths -->
-
 <?php
 	#Supposed to be a template for connecting to the database, 
 	#but can't seem to get it to work.

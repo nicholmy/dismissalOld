@@ -4,13 +4,14 @@
 		<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
+				<th>Pride</th>
 				<th>Home Teacher</th>
 		</tr>
 	</thead>
 	<tbody>
 	<?php
 		
-		$query = "SELECT Student.id, Student.lastName, Student.firstName, Teacher.lastName AS teacher FROM Student JOIN Teacher ON Student.homeTeacherID = Teacher.teacherID ORDER BY Student.lastName, Student.firstName";
+		$query = "SELECT Student.id, Student.pride, Student.lastName, Student.firstName, Teacher.lastName AS teacher FROM Student JOIN Teacher ON Student.homeTeacherID = Teacher.teacherID ORDER BY Student.pride, Student.lastName, Student.firstName";
 		
 		$result = mysql_query($query, $conn) or die("Error: ".mysql_error($conn));
 		
@@ -18,6 +19,7 @@
 			echo("<tr>" .
 						"<td>" . $row["firstName"] . "</td>" .
 						"<td>" . $row["lastName"] . "</td>" .
+						"<td>" . $row["pride"] . "</td>" .
 						"<td>" . $row["teacher"] . "</td>" .
 				 "</tr>");
 		}

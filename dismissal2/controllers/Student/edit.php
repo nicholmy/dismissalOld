@@ -11,7 +11,7 @@
 			if ($_POST["lastName"]) {
 				$query = "UPDATE Student SET lastName = '" . $_POST['lastName'] . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the student: '.mysql_error($conn));
+				$result = mysql_query($query, $conn) or die('Error setting the name: '.mysql_error($conn));
 			
 				echo("Last name updated successfully!<br />");
 			}
@@ -19,9 +19,17 @@
 			if ($_POST["firstName"]) {
 				$query = "UPDATE Student SET firstName = '" . $_POST['firstName'] . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the day.'.mysql_error($conn));
+				$result = mysql_query($query, $conn) or die('Error setting the name.'.mysql_error($conn));
 			
 				echo("First name updated successfully! <br />");
+			}
+			
+			if ($_POST["pride"]) {
+				$query = "UPDATE Student SET pride = '" . $_POST['pride'] . "' WHERE id = '" . $_POST['studentID'] . "';";
+			
+				$result = mysql_query($query, $conn) or die('Error setting the pride.'.mysql_error($conn));
+			
+				echo("Pride updated successfully! <br />");
 			}
 			
 			if ($_POST["homeTeacherID"]) {

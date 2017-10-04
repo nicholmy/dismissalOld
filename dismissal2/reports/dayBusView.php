@@ -13,6 +13,7 @@
 			<?php include("../controllers/Bus/options.php"); ?>
 		</select>
 	</form>
+	<br />
 	<div id="table"></div>
 	<div id="overrideTable"></div>
 </body>
