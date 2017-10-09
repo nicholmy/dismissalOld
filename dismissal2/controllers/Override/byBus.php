@@ -20,7 +20,8 @@
 				$query = "SELECT Student.firstName, Student.lastName, Override.notes
 							FROM Override
 							JOIN Student ON Override.studentID = Student.id
-							WHERE Override.busID = '$_GET[busID]' AND date = '$date'";
+							WHERE Override.busID = '$_GET[busID]' AND date = '$date'
+							ORDER BY Student.firstName, Student.lastName";
 							
 				$result = mysql_query($query, $conn) or die("Error: ".mysql_error());
 			

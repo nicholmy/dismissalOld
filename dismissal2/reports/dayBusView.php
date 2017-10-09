@@ -13,9 +13,9 @@
 			<?php include("../controllers/Bus/options.php"); ?>
 		</select>
 	</form>
+	<div id="overrideTable"></div>
 	<br />
 	<div id="table"></div>
-	<div id="overrideTable"></div>
 </body>
 </html>
 <?php include("../templates/footer.php"); ?>

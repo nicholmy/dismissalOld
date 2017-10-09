@@ -40,7 +40,7 @@
 		<p>
 			This will allow you to mass upload bus data to the database using an excel/csv file. <br /> 
 			Use five columns, for the bus ID, name, line order, driver name, and contact info. <br />
-			Remember that car riders have an ID of -1. <br />
+			Remember that car riders have a special ID of -1. <br />
 			Example: 2009 | Blue Triangle | 15 | Mr. Nicholson | 576-8790
 		</p>
 		<form enctype="multipart/form-data" method="post" role="form">
@@ -68,6 +68,7 @@
 			Before uploading, remember: <br />
 			<ul>
 				<li>Car riders have a special bus ID of -1.</li>
+				<li>Students with no bus assigned have a special bus ID of -2.</li>
 				<li>The teachers must be added first before importing the students. </li>
 				<li>The bus IDs in the file must match with the buses already in the database. </li>
 				<li>The uploaded file must be in the .csv format.</li>
@@ -116,7 +117,9 @@
 						{
 							//Store each column into a variable here
 							$firstName = $filesop[0];
+							$firstName = mysql_real_escape_string($firstName);
 							$lastName = $filesop[1];
+							$lastName = mysql_real_escape_string($lastName);
 							$pride = $filesop[2];
 
 							//print_r($firstName . " " . $lastName . " " . $pride . "<br />");
@@ -206,10 +209,14 @@
 						{
 							//Store each column into a variable here
 							$firstName = $filesop[0];
+							$firstName = mysql_real_escape_string($firstName);
 							$lastName = $filesop[1];
+							$lastName = mysql_real_escape_string($lastName);
 							$pride = $filesop[2];
 							$teacherFirst = $filesop[3];
+							$teacherFirst = mysql_real_escape_string($teacherFirst);
 							$teacherLast = $filesop[4];
+							$teacherLast = mysql_real_escape_string($teacherLast);
 							$busID = $filesop[5];
 							$teacherID = 0;
 

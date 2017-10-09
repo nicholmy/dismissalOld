@@ -2,7 +2,9 @@
 <?php
 			
 	if($_POST["firstName"] && $_POST["lastName"] && $_POST["pride"] && $_POST["busID"] && $_POST["homeTeacherID"]) {
-		$query = "INSERT INTO Student(firstName, lastName, pride, busID, homeTeacherID) VALUES( \"$_POST[firstName]\", \"$_POST[lastName]\", $_POST[pride], $_POST[busID], $_POST[homeTeacherID])";
+		$firstName = mysql_real_escape_string($_POST["firstName"]);
+		$lastName = mysql_real_escape_string($_POST["lastName"]);
+		$query = "INSERT INTO Student(firstName, lastName, pride, busID, homeTeacherID) VALUES( \"$firstName\", \"$lastName\", $_POST[pride], $_POST[busID], $_POST[homeTeacherID])";
 		 
 		if (!mysql_query($query, $conn)) {
 			echo ("Error: ".mysql_error () . "<br />Query: " . $query);

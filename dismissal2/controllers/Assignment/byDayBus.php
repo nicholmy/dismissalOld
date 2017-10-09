@@ -1,4 +1,6 @@
 <?php include("../../templates/db_connect.php"); ?>
+<h1>Normal Bus Assignments</h1>
+<br />
 <table>
     <tr>
 			<th>First Name</th>
@@ -24,7 +26,7 @@
 						JOIN Bus ON Assignment.busID = Bus.busID
 						JOIN Teacher ON Teacher.teacherID = Student.homeTeacherID
 						WHERE Bus.busID = '$_GET[busID]' AND Day.id = '$_GET[dayID]'
-						ORDER BY Student.lastName, Student.firstName";
+						ORDER BY Student.firstName, Student.lastName";
 			
 			$result = mysql_query($query, $conn) or die("Error: ".mysql_error());
 			

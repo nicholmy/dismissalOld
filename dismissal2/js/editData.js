@@ -293,7 +293,7 @@ $(document).ready(function(){
 	});
 	
 	$("#addBus").click(function() {
-		if (!$("#busID").val() && $("#busIDInput").val() && $("#busName").val() && $("#lineOrder").val() && $("#driverName").val() && $("#contactNum").val()) {
+		if (!$("#busID").val() && $("#busIDInput").val() && $("#busName").val() && $("#lineOrder").val()) {
 			bID = $("#busIDInput").val();
 			bName = $("#busName").val();
 			blineOrder = $("#lineOrder").val();

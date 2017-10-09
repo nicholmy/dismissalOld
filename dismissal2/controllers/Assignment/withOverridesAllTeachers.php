@@ -14,7 +14,7 @@
 		
 		#TODO: Use a query to get the actual IDs
 		#for ($tID = 1; $tID <= 23; $tID++) {
-		$query = "SELECT * FROM Teacher";
+		$query = "SELECT * FROM Teacher ORDER BY pride DESC, lastName ASC, firstName ASC";
 		
 		$result = mysql_query($query, $conn) or die('.mysql_error');
 		
@@ -57,7 +57,7 @@
 								)
 							)
 							ORDER BY lnOrder, lastName, firstName";
-			#echo($query);		
+			#echo($query2);		
 					
 						
 			$result2 = mysql_query($query2, $conn) or die("Error: ".mysql_error());
