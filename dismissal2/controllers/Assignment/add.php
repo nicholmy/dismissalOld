@@ -12,8 +12,8 @@
 				
 					$query = "INSERT INTO Assignment(dayID, studentID, busID) VALUES('" . $day . "', '$_POST[studentID]', '$_POST[busID]')";
 					
-					if (!mysql_query($query, $conn)) {
-						echo ("Error: ".mysql_error ());
+					if (!mysqli_query($conn, $query)) {
+						echo ("Error: ".mysqli_error ());
 					} else {
 						echo("Database updated successfully!<br />");
 					}

@@ -11,10 +11,10 @@
 				ORDER BY Override.date DESC, Student.lastName, Student.firstName, Bus.driverName
 				LIMIT 100";
 	
-	$rs = mysql_query($query, $conn);
+	$rs = mysqli_query($conn, $query);
 	
 	echo("<option value=''></option>");
-	while($row = mysql_fetch_array($rs)) {
+	while($row = mysqli_fetch_array($rs)) {
 		echo("<option value='" . $row["id"] . "'>" . $row["date"] . " - " . $row["lastName"] . ", " . $row["firstName"] . " - ");
 			if ($row["busID"] != -1) {
 				echo($row["driverName"] . "/" . $row["name"] . "/" . $row["busID"]);

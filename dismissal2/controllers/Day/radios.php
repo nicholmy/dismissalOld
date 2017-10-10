@@ -3,9 +3,9 @@
 	
 	$query = "SELECT * FROM Day";
 	
-	$rs = mysql_query($query, $conn);
+	$rs = mysqli_query($conn, $query);
 	
-	while($row = mysql_fetch_array($rs)) {
+	while($row = mysqli_fetch_array($rs)) {
 		echo("<input type='checkbox' name='dayIDs[]' value='" . $row["id"] . "' />" . $row["name"] . "<br />");
 	}
 ?>

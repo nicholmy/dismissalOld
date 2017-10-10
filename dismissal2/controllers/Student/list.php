@@ -13,9 +13,9 @@
 		
 		$query = "SELECT Student.id, Student.pride, Student.lastName, Student.firstName, Teacher.lastName AS teacher FROM Student JOIN Teacher ON Student.homeTeacherID = Teacher.teacherID ORDER BY Student.pride, Student.lastName, Student.firstName";
 		
-		$result = mysql_query($query, $conn) or die("Error: ".mysql_error($conn));
+		$result = mysqli_query($conn, $query) or die("Error: ".mysqli_error($conn));
 		
-		while($row = mysql_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			echo("<tr>" .
 						"<td>" . $row["firstName"] . "</td>" .
 						"<td>" . $row["lastName"] . "</td>" .

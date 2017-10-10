@@ -9,20 +9,20 @@
 		if ($_POST["studentID"]) {
 			$query = "";
 			if ($_POST["lastName"]) {
-				$lastName = mysql_real_escape_string($_POST["lastName"]);
+				$lastName = mysqli_real_escape_string($_POST["lastName"]);
 				$query = "UPDATE Student SET lastName = '" . $lastName . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the name: '.mysql_error($conn));
+				$result = mysqli_query($conn, $query) or die('Error setting the name: '.mysqli_error($conn));
 			
 				echo("Last name updated successfully!<br />");
 			}
 			
 			if ($_POST["firstName"]) {
-				$firstName = mysql_real_escape_string($_POST["firstName"]);
+				$firstName = mysqli_real_escape_string($_POST["firstName"]);
 				
 				$query = "UPDATE Student SET firstName = '" . $firstName . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the name.'.mysql_error($conn));
+				$result = mysqli_query($conn, $query) or die('Error setting the name.'.mysqli_error($conn));
 			
 				echo("First name updated successfully! <br />");
 			}
@@ -30,7 +30,7 @@
 			if ($_POST["pride"]) {
 				$query = "UPDATE Student SET pride = '" . $_POST['pride'] . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the pride.'.mysql_error($conn));
+				$result = mysqli_query($conn, $query) or die('Error setting the pride.'.mysqli_error($conn));
 			
 				echo("Pride updated successfully! <br />");
 			}
@@ -38,7 +38,7 @@
 			if ($_POST["homeTeacherID"]) {
 				$query = "UPDATE Student SET homeTeacherID = '" . $_POST['homeTeacherID'] . "' WHERE id = '" . $_POST['studentID'] . "';";
 			
-				$result = mysql_query($query, $conn) or die('Error setting the bus.'.mysql_error($conn));
+				$result = mysqli_query($conn, $query) or die('Error setting the bus.'.mysqli_error($conn));
 			
 				echo("Home teacher updated successfully! <br />");
 			}

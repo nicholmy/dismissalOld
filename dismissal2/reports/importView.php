@@ -117,16 +117,16 @@
 						{
 							//Store each column into a variable here
 							$firstName = $filesop[0];
-							$firstName = mysql_real_escape_string($firstName);
+							$firstName = mysqli_real_escape_string($firstName);
 							$lastName = $filesop[1];
-							$lastName = mysql_real_escape_string($lastName);
+							$lastName = mysqli_real_escape_string($lastName);
 							$pride = $filesop[2];
 
 							//print_r($firstName . " " . $lastName . " " . $pride . "<br />");
 							
 							$query = "INSERT INTO Teacher(teacherID, firstName, lastName, pride) VALUES(NULL, '$firstName', '$lastName', '$pride')";
-							if (!mysql_query($query, $conn)) {
-								die ("Error: ".mysql_error());
+							if (!mysqli_query($conn, $query)) {
+								die ("Error: ".mysqli_error());
 							} else {
 								echo("Database updated successfully! Added $firstName $lastName ($pride) to the database. <br />");
 							}
@@ -169,8 +169,8 @@
 							//print_r($firstName . " " . $lastName . " " . $pride . "<br />");
 							
 							$query = "INSERT INTO Bus(busID, name, lineOrder, driverName, contactNum) VALUES('$busID', '$name', '$lineOrder', '$driverName', '$contactNum')";
-							if (!mysql_query($query, $conn)) {
-								die ("Error: ".mysql_error());
+							if (!mysqli_query($conn, $query)) {
+								die ("Error: ".mysqli_error());
 							} else {
 								echo("Database updated successfully! Added $name ($driverName) to the database. <br />");
 							}
@@ -209,14 +209,14 @@
 						{
 							//Store each column into a variable here
 							$firstName = $filesop[0];
-							$firstName = mysql_real_escape_string($firstName);
+							$firstName = mysqli_real_escape_string($firstName);
 							$lastName = $filesop[1];
-							$lastName = mysql_real_escape_string($lastName);
+							$lastName = mysqli_real_escape_string($lastName);
 							$pride = $filesop[2];
 							$teacherFirst = $filesop[3];
-							$teacherFirst = mysql_real_escape_string($teacherFirst);
+							$teacherFirst = mysqli_real_escape_string($teacherFirst);
 							$teacherLast = $filesop[4];
-							$teacherLast = mysql_real_escape_string($teacherLast);
+							$teacherLast = mysqli_real_escape_string($teacherLast);
 							$busID = $filesop[5];
 							$teacherID = 0;
 
@@ -224,25 +224,25 @@
 							
 							$query = "SELECT * FROM Teacher WHERE firstName='$teacherFirst' AND lastName='$teacherLast'";
 		
-							$result = mysql_query($query, $conn) or die('Error: '.mysql_error());
+							$result = mysqli_query($conn, $query) or die('Error: '.mysqli_error());
 							
-							while($row = mysql_fetch_array($result)) {
+							while($row = mysqli_fetch_array($result)) {
 								$teacherID = $row["teacherID"];
 								echo ("Found $firstName's teacher: " . $teacherID . " (" . $row["firstName"] . " " . $row["lastName"] .  ") - ");
 							}
 							
 							$query = "INSERT INTO Student(id, firstName, lastName, busID, homeTeacherID, pride) VALUES(NULL, '$firstName', '$lastName', '$busID', '$teacherID', '$pride')";
-							if (!mysql_query($query, $conn)) {
-								die ("Error: ".mysql_error());
+							if (!mysqli_query($conn, $query)) {
+								die ("Error: ".mysqli_error());
 							} else {
 								echo("Database updated successfully! Added $firstName $lastName ($pride) to the database. <br />");
 							}
 							//Apparently this is depreciated? Well then... >_> I do wish I was using mysqli tho
-							$id = mysql_insert_id();
+							$id = mysqli_insert_id();
 							$dayID = 2;
 							while ($dayID <= 6) {
 								$query = "INSERT INTO Assignment(dayID, studentID, busID, notes) VALUES('$dayID', '$id', '$busID', '')";
-								$result = mysql_query($query, $conn) or die('Error: '.mysql_error());
+								$result = mysqli_query($conn, $query) or die('Error: '.mysqli_error());
 								
 								$dayID = $dayID + 1;
 							}

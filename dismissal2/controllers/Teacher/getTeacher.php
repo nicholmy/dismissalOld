@@ -4,9 +4,9 @@
 	if ($_GET["teacherID"]) {
 		$query = "SELECT * FROM Teacher WHERE teacherID = " . $_GET['teacherID'];
 		
-		$result = mysql_query($query, $conn) or die('Error: '.mysql_error());
+		$result = mysqli_query($conn, $query) or die('Error: '.mysqli_error());
 		
-		while($row = mysql_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			echo json_encode($row);
 		}
 	} else {

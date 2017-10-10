@@ -13,9 +13,9 @@
 		
 		$query = "SELECT * FROM Teacher ORDER BY pride, lastName, firstName";
 		
-		$result = mysql_query($query, $conn) or die('.mysql_error');
+		$result = mysqli_query($conn, $query) or die('.mysqli_error');
 		
-		while($row = mysql_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			echo("<tr>" .
 						"<td>" . $row["teacherID"] . "</td>" .
 						"<td>" . $row["firstName"] . "</td>" .

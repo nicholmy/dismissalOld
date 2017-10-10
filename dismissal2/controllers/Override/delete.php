@@ -10,8 +10,8 @@
 			if($_POST["overrideID"]) {
 				$query = "DELETE FROM Override WHERE id = '$_POST[overrideID]'";
 				 
-				if (!mysql_query($query, $conn)) {
-					echo ("Error: ".mysql_error () . "<br />Query: " . $query);
+				if (!mysqli_query($conn, $query)) {
+					echo ("Error: ".mysqli_error () . "<br />Query: " . $query);
 				} else {
 					echo("Override deleted successfully!");
 				}

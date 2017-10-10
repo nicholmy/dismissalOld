@@ -67,7 +67,7 @@
 							
 							$query = "SELECT * FROM Teacher WHERE firstName='$teacherFirst' AND lastName='$teacherLast'";
 		
-							$result = mysql_query($query, $conn) or die('Error: '.mysql_error());
+							$result = mysql_query($conn, $query) or die('Error: '.mysql_error());
 							
 							while($row = mysql_fetch_array($result)) {
 								$teacherID = $row["teacherID"];
@@ -75,7 +75,7 @@
 							}
 							
 							$query = "INSERT INTO Student(id, firstName, lastName, busID, homeTeacherID, pride) VALUES(NULL, '$firstName', '$lastName', '$busID', '$teacherID', '$pride')";
-							if (!mysql_query($query, $conn)) {
+							if (!mysql_query($conn, $query)) {
 								die ("Error: ".mysql_error());
 							} else {
 								echo("Database updated successfully! Added $firstName $lastName ($pride) to the database. <br />");
@@ -84,7 +84,7 @@
 							$dayID = 2;
 							while ($dayID <= 6) {
 								$query = "INSERT INTO Assignment(dayID, studentID, busID, notes) VALUES('$dayID', LAST_INSERT_ID(), '$busID', '')";
-								$result = mysql_query($query, $conn) or die('Error: '.mysql_error());
+								$result = mysql_query($conn, $query) or die('Error: '.mysql_error());
 								
 								$dayID++;
 							}

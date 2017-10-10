@@ -15,9 +15,9 @@
 		
 		$query = "SELECT * FROM Bus ORDER BY lineOrder, name";
 		
-		$result = mysql_query($query, $conn) or die('.mysql_error');
+		$result = mysqli_query($conn, $query) or die('.mysqli_error');
 		
-		while($row = mysql_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			echo("<tr>" .
 						"<td>" . $row["busID"] . "</td>" .
 						"<td>" . $row["name"] . "</td>" .

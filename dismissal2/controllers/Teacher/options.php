@@ -2,10 +2,10 @@
 <?php
 	$query = "SELECT * FROM Teacher ORDER BY lastName, firstName";
 	
-	$rs = mysql_query($query, $conn);
+	$rs = mysqli_query($conn, $query);
 	
 	echo("<option value=''></option>");
-	while($row = mysql_fetch_array($rs)) {
+	while($row = mysqli_fetch_array($rs)) {
 		echo("<option value='" . $row["teacherID"] . "'>" . $row["lastName"] . ", " . $row["firstName"] . "</option>");
 	}
 ?>

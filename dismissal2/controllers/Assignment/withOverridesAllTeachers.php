@@ -16,9 +16,9 @@
 		#for ($tID = 1; $tID <= 23; $tID++) {
 		$query = "SELECT * FROM Teacher ORDER BY pride DESC, lastName ASC, firstName ASC";
 		
-		$result = mysql_query($query, $conn) or die('.mysql_error');
+		$result = mysqli_query($conn, $query) or die('.mysqli_error');
 		
-		while($trow = mysql_fetch_array($result)) {
+		while($trow = mysqli_fetch_array($result)) {
 			echo("<div class=\"page\">
 			<h1>" . $date . " Roster List for " . $trow["firstName"] . " " . $trow["lastName"] . "</h1>");
 			
@@ -60,9 +60,9 @@
 			#echo($query2);		
 					
 						
-			$result2 = mysql_query($query2, $conn) or die("Error: ".mysql_error());
+			$result2 = mysqli_query($conn, $query2) or die("Error: ".mysqli_error());
 			
-			while($row = mysql_fetch_array($result2)) {
+			while($row = mysqli_fetch_array($result2)) {
 				if ($row["isOverride"] == "Y") {
 					echo("<tr class='highlight'>");
 				} else {

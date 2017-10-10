@@ -11,9 +11,9 @@
 		if ($_GET["lineName"]) {
 			$query = "SELECT Student.firstName, Student.lastName, Bus.driverName, Bus.name, Bus.busID, Teacher.lastName AS teacherName FROM Student JOIN Bus ON Student.busID = Bus.busID JOIN Teacher ON Student.homeTeacherID = Teacher.teacherID WHERE Bus.lineName = '$_GET[lineName]'";
 			
-			$result = mysql_query($query, $conn) or die("Error: ".mysql_error ());
+			$result = mysqli_query($conn, $query) or die("Error: ".mysqli_error ());
 			
-			while($row = mysql_fetch_array($result)) {
+			while($row = mysqli_fetch_array($result)) {
 				echo("<tr>" .
 							"<td>" . $row["firstName"] . "</td>" .
 							"<td>" . $row["lastName"] . "</td>");

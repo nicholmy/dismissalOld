@@ -10,10 +10,10 @@
 				WHERE 1
 				ORDER BY Student.lastName, Student.firstName, Day.id, Bus.driverName";
 	
-	$rs = mysql_query($query, $conn);
+	$rs = mysqli_query($conn, $query);
 	
 	echo("<option value=''></option>");
-	while($row = mysql_fetch_array($rs)) {
+	while($row = mysqli_fetch_array($rs)) {
 		echo("<option value='" . $row["id"] . "'>" . $row["lastName"] . ", " . $row["firstName"] . " - " . $row["dayName"] . " - ");
 			if ($row["busID"] != -1) {
 				echo($row["driverName"] . "/" . $row["name"] . "/" . $row["busID"]);

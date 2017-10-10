@@ -28,9 +28,9 @@
 						WHERE Bus.busID = '$_GET[busID]' AND Day.id = '$_GET[dayID]'
 						ORDER BY Student.firstName, Student.lastName";
 			
-			$result = mysql_query($query, $conn) or die("Error: ".mysql_error());
+			$result = mysqli_query($conn, $query) or die("Error: ".mysqli_error());
 			
-			while($row = mysql_fetch_array($result)) {
+			while($row = mysqli_fetch_array($result)) {
 				echo("<tr>" .
 							"<td>" . $row["firstName"] . "</td>" .
 							"<td>" . $row["lastName"] . "</td>" .
